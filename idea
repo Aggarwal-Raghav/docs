@@ -1,0 +1,45 @@
+	1. windowing functions
+	2. UDF's: User-Defined Functions (UDFs), often containing critical business logic in Java, cannot be directly transferred. They must be rewritten in a language supported by the cloud platform, such as SQL or JavaScript, or replaced with native functions
+	3. SQL dialect/syntax changes: SQL Dialect Translation HiveQL contains syntax and functions that differ from the ANSI-standard SQL used by most cloud data warehouses. Automated translation tools often struggle with these differences, making the conversion of queries a complex and lengthy manual process.
+	4. Non-standard joins
+	5. The never-ending “last mile”: Even when a migration is near completion, the “last mile” often proves to be the most challenging phase. During stakeholder review, previously unidentified edge cases may emerge, revealing discrepancies that don’t align with business expectations.
+
+Decoupling of Compute and Storage: On-premise Hadoop tightly couples compute and storage, operating on the principle of data locality. Cloud platforms disaggregate them, which is the source of their elasticity but introduces new performance dynamics. This means workloads designed for HDFS must be re-tuned for an environment where data is accessed over the network, which can introduce higher I/O variance and latency.
+
+Loss of POSIX-like File System Semantics: HDFS provides certain POSIX-like features that many Hadoop jobs implicitly rely on, most notably atomic directory renames. Cloud object storage does not support atomic renames; a "rename" is a series of copy-and-delete operations on individual objects. This can break traditional Hadoop commit protocols, requiring the adoption of cloud-specific output committers (like the EMRFS S3-optimized committer) to avoid performance degradation and potential data consistency issues.
+
+While having many small files is suboptimal on HDFS, it becomes a severe performance bottleneck on cloud object storage. Each file read requires a separate API request (e.g., a GET request to S3), and the overhead of these requests can dominate query execution time. This necessitates implementing a robust data compaction strategy to merge small files into larger, query-optimized formats.   
+
+
+
+SQL Dialect and Data Type Incompatibilities: HiveQL has specific extensions and behaviors that differ from the ANSI-standard SQL used by platforms like Snowflake and BigQuery. While automated tools can handle simple translations, they often fail with complex data types (like ARRAYS and STRUCTS), advanced analytics functions, and implicit type casting, requiring significant manual review and rewriting. For example, Hive's   
+MAP and UNION types do not have direct equivalents in BigQuery and must be mapped to STRUCT types.   
+
+
+Migration of User-Defined Functions (UDFs): This is a major technical hurdle. Hive UDFs are typically written in Java and cannot be migrated directly. They must be completely rewritten in a language supported by the target platform, such as SQL or JavaScript. Furthermore, some platforms like BigQuery do not support User-Defined   
+Aggregate Functions (UDAFs) at all, forcing a complete redesign of any aggregation logic that was encapsulated in custom code.   
+
+
+Of course. Migrating from Apache Hive to a modern cloud-based query engine involves overcoming a series of complex, in-depth technical challenges that go far beyond a simple "lift-and-shift" of infrastructure. Success requires a deep understanding of the fundamental architectural, operational, and security paradigm shifts between the on-premise Hadoop ecosystem and cloud-native platforms.
+Here are some of the most significant in-depth technical challenges you will face.
+1. Core Architectural and Storage Paradigm Shifts
+The most fundamental challenge stems from the architectural differences between Hive's underlying Hadoop Distributed File System (HDFS) and cloud object storage (like Amazon S3, Google Cloud Storage, or Azure Blob Storage).
+	• Decoupling of Compute and Storage: On-premise Hadoop tightly couples compute and storage, operating on the principle of data locality. Cloud platforms disaggregate them, which is the source of their elasticity but introduces new performance dynamics. This means workloads designed for HDFS must be re-tuned for an environment where data is accessed over the network, which can introduce higher I/O variance and latency.   
+	• Loss of POSIX-like File System Semantics: HDFS provides certain POSIX-like features that many Hadoop jobs implicitly rely on, most notably atomic directory renames. Cloud object storage does not support atomic renames; a "rename" is a series of copy-and-delete operations on individual objects. This can break traditional Hadoop commit protocols, requiring the adoption of cloud-specific output committers (like the EMRFS S3-optimized committer) to avoid performance degradation and potential data consistency issues.   
+	• The "Small File Problem" on Object Storage: While having many small files is suboptimal on HDFS, it becomes a severe performance bottleneck on cloud object storage. Each file read requires a separate API request (e.g., a GET request to S3), and the overhead of these requests can dominate query execution time. This necessitates implementing a robust data compaction strategy to merge small files into larger, query-optimized formats.   
+2. Workload and Code Conversion
+This is often the most time-consuming phase, involving the translation of years of accumulated business logic.
+	• SQL Dialect and Data Type Incompatibilities: HiveQL has specific extensions and behaviors that differ from the ANSI-standard SQL used by platforms like Snowflake and BigQuery. While automated tools can handle simple translations, they often fail with complex data types (like ARRAYS and STRUCTS), advanced analytics functions, and implicit type casting, requiring significant manual review and rewriting. For example, Hive's   
+MAP and UNION types do not have direct equivalents in BigQuery and must be mapped to STRUCT types.   
+	• Migration of User-Defined Functions (UDFs): This is a major technical hurdle. Hive UDFs are typically written in Java and cannot be migrated directly. They must be completely rewritten in a language supported by the target platform, such as SQL or JavaScript. Furthermore, some platforms like BigQuery do not support User-Defined   
+Aggregate Functions (UDAFs) at all, forcing a complete redesign of any aggregation logic that was encapsulated in custom code.   
+3. Metastore Migration and Modernization
+The Hive Metastore is the central schema repository, and its migration is a critical dependency for the entire project.
+	• Incremental vs. "Big Bang" Migration: A one-time "Big Bang" migration of the metastore is extremely risky and often involves unacceptable downtime for large environments. The more robust technical approach is an incremental migration using a Change Data Capture (CDC) pipeline to keep the on-premise and cloud metastores synchronized. However, setting up and managing this CDC process is technically complex and requires careful handling to prevent data drift.   
+	• Feature and Behavior Discrepancies: When moving to a modern catalog like Databricks Unity Catalog, there are functional differences to account for. For instance, Unity Catalog manages data partitions differently, and direct partition manipulation commands used in Hive are not supported. Additionally, when cloning tables from Hive, the table history is not preserved, meaning Delta Lake time travel on pre-migration data is not possible.   
+4. Performance Tuning in a Cloud-Native Environment
+Optimization techniques that were effective on HDFS can be ineffective or even counterproductive on cloud object storage.
+	• Hive-Style Partitioning as an Anti-Pattern: A common Hive practice is to partition data by date (e.g., /year=2023/month=09/day=07/). On cloud object storage like Amazon S3, this creates a performance "hotspot" because all writes for a given period are directed to a single, non-random prefix, which can throttle the storage service's scaling mechanism. The deep, nested directory structure also leads to slow and expensive API calls when listing files during query planning.   
+	• New Optimization Levers: Performance tuning in the cloud requires leveraging new, platform-specific features. For example, on Amazon EMR, this includes using the EMRFS S3-optimized committer to improve write performance by avoiding slow rename operations and enabling S3 Select to push down filtering operations to the storage layer, reducing data transfer.   
+
+
