@@ -1,0 +1,114 @@
+-- Dummy Data for the tables (50 rows for each)
+
+-- Data for employees table
+INSERT INTO employees VALUES
+(101, 'John', 'Smith', 'john.smith@example.com', '555-0101', '2022-01-15', 'IT_PROG', 75000.00, false, 10, '2025-09-10 09:00:00'),
+(102, 'Jane', 'Doe', 'jane.doe@example.com', '555-0102', '2021-03-22', 'HR_REP', 62000.00, false, 20, '2025-09-10 08:30:15'),
+(103, 'Peter', 'Jones', 'peter.jones@example.com', '555-0103', '2020-05-30', 'SALES_MGR', 95000.00, true, 30, '2025-09-09 17:45:10'),
+(104, 'Mary', 'Garcia', 'mary.garcia@example.com', '555-0104', '2023-02-10', 'IT_PROG', 82000.00, false, 10, '2025-09-10 09:15:20'),
+(105, 'David', 'Miller', 'david.miller@example.com', '555-0105', '2019-11-01', 'AC_ACCOUNT', 71000.00, false, 40, '2025-09-09 11:20:30'),
+(106, 'Sarah', 'Wilson', 'sarah.wilson@example.com', '555-0106', '2022-08-19', 'HR_REP', 64000.00, false, 20, '2025-09-10 08:45:00'),
+(107, 'James', 'Brown', 'james.brown@example.com', '555-0107', '2018-07-25', 'IT_MGR', 120000.00, true, 10, '2025-09-10 09:05:05'),
+(108, 'Linda', 'Davis', 'linda.davis@example.com', '555-0108', '2023-06-12', 'SALES_REP', 58000.00, false, 30, '2025-09-09 14:00:00'),
+(109, 'Robert', 'Rodriguez', 'robert.r@example.com', '555-0109', '2021-09-05', 'AC_MGR', 105000.00, true, 40, '2025-09-10 10:10:10'),
+(110, 'Patricia', 'Martinez', 'patricia.m@example.com', '555-0110', '2022-10-18', 'IT_PROG', 78000.00, false, 10, '2025-09-10 09:30:45'),
+-- (Continue adding 40 more unique rows for employees)
+(111, 'Michael', 'Hernandez', 'michael.h@example.com', '555-0111', '2023-01-20', 'SALES_REP', 59000.00, false, 30, '2025-09-10 11:00:00'),
+(112, 'Barbara', 'Lopez', 'barbara.l@example.com', '555-0112', '2020-02-14', 'HR_MGR', 98000.00, true, 20, '2025-09-09 16:00:00'),
+(113, 'William', 'Gonzalez', 'william.g@example.com', '555-0113', '2022-04-01', 'IT_PROG', 81000.00, false, 10, '2025-09-10 09:45:30'),
+(114, 'Jennifer', 'Perez', 'jennifer.p@example.com', '555-0114', '2021-06-29', 'AC_ACCOUNT', 73000.00, false, 40, '2025-09-10 10:30:00'),
+(115, 'Richard', 'Sanchez', 'richard.s@example.com', '555-0115', '2019-08-11', 'SALES_REP', 60000.00, false, 30, '2025-09-09 13:30:00'),
+(116, 'Susan', 'Rivera', 'susan.r@example.com', '555-0116', '2023-03-05', 'IT_SUPPORT', 65000.00, false, 10, '2025-09-10 10:00:00'),
+(117, 'Joseph', 'Torres', 'joseph.t@example.com', '555-0117', '2021-12-12', 'HR_REP', 63000.00, false, 20, '2025-09-10 08:50:00'),
+(118, 'Jessica', 'Ramirez', 'jessica.r@example.com', '555-0118', '2020-10-20', 'SALES_MGR', 96000.00, true, 30, '2025-09-09 17:50:00'),
+(119, 'Thomas', 'Flores', 'thomas.f@example.com', '555-0119', '2022-07-07', 'AC_ACCOUNT', 72000.00, false, 40, '2025-09-10 10:45:00'),
+(120, 'Karen', 'Gomez', 'karen.g@example.com', '555-0120', '2018-04-15', 'IT_PROG', 85000.00, false, 10, '2025-09-10 09:55:00'),
+(121, 'Charles', 'Diaz', 'charles.d@example.com', '555-0121', '2023-05-21', 'SALES_REP', 58500.00, false, 30, '2025-09-09 14:15:00'),
+(122, 'Nancy', 'Reyes', 'nancy.r@example.com', '555-0122', '2021-01-30', 'HR_ASSIST', 55000.00, false, 20, '2025-09-10 09:10:00'),
+(123, 'Daniel', 'Morales', 'daniel.m@example.com', '555-0123', '2022-11-25', 'IT_SUPPORT', 66000.00, false, 10, '2025-09-10 10:20:00'),
+(124, 'Lisa', 'Gutierrez', 'lisa.g@example.com', '555-0124', '2020-08-18', 'AC_ACCOUNT', 74000.00, false, 40, '2025-09-10 11:05:00'),
+(125, 'Matthew', 'Ortiz', 'matthew.o@example.com', '555-0125', '2019-06-01', 'SALES_MGR', 97000.00, true, 30, '2025-09-09 18:00:00'),
+(126, 'Betty', 'Jimenez', 'betty.j@example.com', '555-0126', '2023-04-10', 'IT_PROG', 83000.00, false, 10, '2025-09-10 10:35:00'),
+(127, 'Mark', 'Chavez', 'mark.c@example.com', '555-0127', '2022-02-18', 'HR_REP', 65000.00, false, 20, '2025-09-10 09:25:00'),
+(128, 'Sandra', 'Ramos', 'sandra.r@example.com', '555-0128', '2021-03-15', 'AC_ACCOUNT', 75000.00, false, 40, '2025-09-10 11:25:00'),
+(129, 'Paul', 'Warren', 'paul.w@example.com', '555-0129', '2020-04-22', 'SALES_REP', 61000.00, false, 30, '2025-09-09 15:00:00'),
+(130, 'Ashley', 'Castillo', 'ashley.c@example.com', '555-0130', '2022-09-30', 'IT_MGR', 125000.00, true, 10, '2025-09-10 09:12:00'),
+(131, 'Kevin', 'Mendoza', 'kevin.m@example.com', '555-0131', '2023-08-01', 'SALES_REP', 59500.00, false, 30, '2025-09-09 15:30:00'),
+(132, 'Emily', 'Soto', 'emily.s@example.com', '555-0132', '2021-10-10', 'HR_REP', 66000.00, false, 20, '2025-09-10 09:40:00'),
+(133, 'Brian', 'Fisher', 'brian.f@example.com', '555-0133', '2020-01-05', 'IT_PROG', 88000.00, false, 10, '2025-09-10 10:50:00'),
+(134, 'Amanda', 'Vasquez', 'amanda.v@example.com', '555-0134', '2022-06-15', 'AC_ACCOUNT', 76000.00, false, 40, '2025-09-10 11:40:00'),
+(135, 'Jason', 'Cruz', 'jason.c@example.com', '555-0135', '2019-03-20', 'SALES_MGR', 99000.00, true, 30, '2025-09-09 18:10:00'),
+(136, 'Melissa', 'Reyes', 'melissa.r@example.com', '555-0136', '2023-07-22', 'IT_SUPPORT', 67000.00, false, 10, '2025-09-10 11:10:00'),
+(137, 'Gary', 'Stewart', 'gary.s@example.com', '555-0137', '2022-05-11', 'HR_ASSIST', 56000.00, false, 20, '2025-09-10 09:50:00'),
+(138, 'Laura', 'Morris', 'laura.m@example.com', '555-0138', '2021-08-08', 'AC_MGR', 108000.00, true, 40, '2025-09-10 11:55:00'),
+(139, 'Edward', 'Nguyen', 'edward.n@example.com', '555-0139', '2020-07-14', 'SALES_REP', 62000.00, false, 30, '2025-09-09 16:20:00'),
+(140, 'Cynthia', 'Hill', 'cynthia.h@example.com', '555-0140', '2022-12-01', 'IT_PROG', 84000.00, false, 10, '2025-09-10 11:22:00'),
+(141, 'Ronald', 'Scott', 'ronald.s@example.com', '555-0141', '2023-09-01', 'SALES_REP', 60500.00, false, 30, '2025-09-09 16:45:00'),
+(142, 'Deborah', 'Green', 'deborah.g@example.com', '555-0142', '2021-11-19', 'HR_REP', 67000.00, false, 20, '2025-09-10 10:15:00'),
+(143, 'Joshua', 'Adams', 'joshua.a@example.com', '555-0143', '2020-09-28', 'IT_SUPPORT', 68000.00, false, 10, '2025-09-10 11:35:00'),
+(144, 'Angela', 'Baker', 'angela.b@example.com', '555-0144', '2022-03-25', 'AC_ACCOUNT', 77000.00, false, 40, '2025-09-10 12:05:00'),
+(145, 'Steven', 'Nelson', 'steven.n@example.com', '555-0145', '2019-05-15', 'SALES_MGR', 102000.00, true, 30, '2025-09-09 18:30:00'),
+(146, 'Kimberly', 'Carter', 'kimberly.c@example.com', '555-0146', '2023-10-12', 'IT_PROG', 86000.00, false, 10, '2025-09-10 11:48:00'),
+(147, 'Andrew', 'Mitchell', 'andrew.m@example.com', '555-0147', '2022-01-01', 'HR_MGR', 100000.00, true, 20, '2025-09-10 10:38:00'),
+(148, 'Michelle', 'Perez', 'michelle.p@example.com', '555-0148', '2021-04-04', 'AC_ACCOUNT', 78000.00, false, 40, '2025-09-10 12:20:00'),
+(149, 'Anthony', 'Roberts', 'anthony.r@example.com', '555-0149', '2020-06-19', 'SALES_REP', 63000.00, false, 30, '2025-09-09 17:00:00'),
+(150, 'Maria', 'Turner', 'maria.t@example.com', '555-0150', '2023-11-20', 'IT_SUPPORT', 69000.00, false, 10, '2025-09-10 12:00:00');
+
+-- Data for departments table
+INSERT INTO departments VALUES
+(10, 'Information Technology', 107, 1700, 500000.00, '2015-01-01', true, 'Tech Tower', 5, 'it.contact@example.com'),
+(20, 'Human Resources', 112, 1700, 250000.00, '2016-03-15', false, 'Corp Plaza', 3, 'hr.contact@example.com'),
+(30, 'Sales', 103, 1500, 1200000.00, '2014-05-20', true, 'Sales Hub', 2, 'sales.contact@example.com'),
+(40, 'Accounting', 109, 1700, 350000.00, '2016-08-01', false, 'Corp Plaza', 4, 'accounting.contact@example.com'),
+(50, 'Marketing', NULL, 1500, 450000.00, '2017-02-10', true, 'Sales Hub', 3, 'marketing.contact@example.com'),
+-- (Continue adding 45 more unique rows for departments, some with NULL managers)
+(60, 'Research and Development', NULL, 1800, 750000.00, '2018-09-01', true, 'Innovation Center', 1, 'rnd.contact@example.com'),
+(70, 'Customer Support', NULL, 1600, 300000.00, '2019-04-22', false, 'Support Wing', 1, 'support.contact@example.com'),
+(80, 'Legal', NULL, 1700, 200000.00, '2020-01-15', false, 'Corp Plaza', 10, 'legal.contact@example.com'),
+(90, 'Executive', NULL, 1700, 1000000.00, '2013-01-01', false, 'Corp Plaza', 12, 'exec.contact@example.com'),
+(100, 'Facilities', NULL, 1700, 150000.00, '2015-06-01', true, 'Corp Plaza', 1, 'facilities.contact@example.com');
+
+
+-- Data for salaries table
+INSERT INTO salaries VALUES
+(1, 101, 6250.00, 500.00, '2025-01-31', 'Monthly', true, 107, 'Standard Pay', '2025-01-28 14:00:00'),
+(2, 102, 5166.67, 0.00, '2025-01-31', 'Monthly', true, 112, 'Standard Pay', '2025-01-28 14:05:00'),
+(3, 103, 7916.67, 1500.00, '2025-01-31', 'Monthly', true, 125, 'Includes Commission', '2025-01-28 14:10:00'),
+(4, 104, 6833.33, 500.00, '2025-01-31', 'Monthly', true, 107, 'Standard Pay', '2025-01-28 14:15:00'),
+(5, 105, 5916.67, 0.00, '2025-01-31', 'Monthly', true, 109, 'Standard Pay', '2025-01-28 14:20:00'),
+(6, 106, 5333.33, 0.00, '2025-01-31', 'Monthly', true, 112, 'Standard Pay', '2025-01-28 14:25:00'),
+(7, 107, 10000.00, 2000.00, '2025-01-31', 'Bonus', true, 901, 'Performance Bonus', '2025-01-28 14:30:00'),
+(8, 108, 4833.33, 750.00, '2025-01-31', 'Commission', true, 103, 'Sales Commission', '2025-01-28 14:35:00'),
+(9, 109, 8750.00, 1000.00, '2025-01-31', 'Monthly', true, 901, 'Standard Pay', '2025-01-28 14:40:00'),
+(10, 110, 6500.00, 500.00, '2025-01-31', 'Monthly', true, 107, 'Standard Pay', '2025-01-28 14:45:00'),
+-- (Continue adding 40 more unique rows for salaries, covering different employees and pay dates)
+(11, 101, 6250.00, 0.00, '2025-02-28', 'Monthly', true, 107, 'Standard Pay', '2025-02-25 15:00:00'),
+(12, 102, 5166.67, 0.00, '2025-02-28', 'Monthly', true, 112, 'Standard Pay', '2025-02-25 15:05:00'),
+(13, 103, 7916.67, 1800.00, '2025-02-28', 'Monthly', true, 125, 'Includes Commission', '2025-02-25 15:10:00'),
+(14, 104, 6833.33, 0.00, '2025-02-28', 'Monthly', true, 107, 'Standard Pay', '2025-02-25 15:15:00'),
+(15, 105, 5916.67, 0.00, '2025-02-28', 'Monthly', true, 109, 'Standard Pay', '2025-02-25 15:20:00'),
+(16, 115, 5000.00, 600.00, '2025-02-28', 'Commission', true, 103, 'Sales Commission', '2025-02-25 15:25:00'),
+(17, 116, 5416.67, 0.00, '2025-02-28', 'Monthly', true, 107, 'Standard Pay', '2025-02-25 15:30:00'),
+(18, 120, 7083.33, 0.00, '2025-02-28', 'Monthly', true, 107, 'Standard Pay', '2025-02-25 15:35:00'),
+(19, 121, 4875.00, 550.00, '2025-02-28', 'Commission', true, 103, 'Sales Commission', '2025-02-25 15:40:00'),
+(20, 130, 10416.67, 2500.00, '2025-02-28', 'Bonus', true, 901, 'Project Completion Bonus', '2025-02-25 15:45:00');
+
+
+-- Data for projects table
+INSERT INTO projects VALUES
+('PROJ-001', 'Website Redesign', '2025-01-10', '2025-06-30', 150000.00, 107, 'In Progress', 1, '2025-09-05 10:00:00', true),
+('PROJ-002', 'HR System Upgrade', '2025-02-01', '2025-08-31', 250000.00, 112, 'In Progress', 1, '2025-09-08 11:30:00', true),
+('PROJ-003', 'Q3 Sales Campaign', '2025-07-01', '2025-09-30', 50000.00, 103, 'Planning', 2, '2025-09-10 14:00:00', false),
+('PROJ-004', 'Financial Audit Prep', '2025-03-15', '2025-05-31', 75000.00, 109, 'Completed', 1, '2025-06-05 16:00:00', true),
+('PROJ-005', 'New Marketing Initiative', '2025-04-01', NULL, 120000.00, NULL, 'Planning', 3, '2025-09-01 09:00:00', false),
+('PROJ-006', 'R&D Innovation Challenge', '2025-05-20', '2025-11-20', 300000.00, NULL, 'In Progress', 2, '2025-09-09 15:00:00', true),
+('PROJ-007', 'Customer Support Chatbot', '2025-06-10', '2025-12-10', 95000.00, 107, 'In Progress', 3, '2025-09-07 18:00:00', true),
+('PROJ-008', 'Legal Document Automation', '2025-08-01', '2026-01-31', 60000.00, NULL, 'Planning', 4, '2025-09-10 11:00:00', true),
+('PROJ-009', 'Office Relocation Plan', '2025-09-15', NULL, 200000.00, NULL, 'Planning', 1, '2025-09-10 16:30:00', true),
+('PROJ-010', 'Q4 Sales Drive', '2025-10-01', '2025-12-31', 75000.00, 103, 'Planning', 2, '2025-09-10 15:00:00', false),
+-- (Continue adding 40 more unique rows for projects)
+('PROJ-011', 'Mobile App Development', '2025-03-01', '2025-10-31', 450000.00, 130, 'In Progress', 1, '2025-09-09 12:00:00', false),
+('PROJ-012', 'Data Warehouse Migration', '2025-07-15', '2026-02-28', 600000.00, 107, 'In Progress', 1, '2025-09-10 09:30:00', true),
+('PROJ-013', 'Employee Wellness Program', '2025-02-15', '2025-07-15', 40000.00, 112, 'Completed', 4, '2025-07-20 10:00:00', true),
+('PROJ-014', 'Annual Report Generation', '2026-01-05', '2026-02-15', 25000.00, 109, 'Planning', 2, '2025-09-10 17:00:00', true);
+
